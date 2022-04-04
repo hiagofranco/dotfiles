@@ -5,28 +5,41 @@ add_newline = false
 [line_break]
 disabled = true
 
+[aws]
+style = "bold #ffb86c"
+
+[cmake]
+format = '\[[$symbol($version)]($style)\]'
+
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                         # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
 error_symbol = "[✗](bold red)"      # The "error_symbol" is set ti x with red color
 
-[cmake]
-format = '\[[$symbol($version)]($style)\]'
-
 [cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
+style = "bold #f1fa8c"
+
+[directory]
+style = "bold #50fa7b"
+
+[git_branch]
+style = "bold #ff79c6"
+
+[git_status]
+style = "bold #ff5555"
+
+[hostname]
+style = "bold #ff5555"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold #bd93f9"
 
 [docker_context]
 format = '\[[$symbol$context]($style)\]'
 
 [dotnet]
 format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[git_branch]
-format = '\[[$symbol$branch]($style)\]'
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
 
 [haskell]
 format = '\[[$symbol($version)]($style)\]'
@@ -48,10 +61,3 @@ format = '\[[as $symbol]\]'
 
 [time]
 format = '\[[$time]($style)\]'
-
-[username]
-format = '\[[$user]($style)\]'
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true

@@ -40,9 +40,15 @@ Plug 'vim-python/python-syntax'                    " Python highlighting
 " Autocomplete code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Theme
+Plug 'dracula/vim', { 'name': 'dracula' }
+
 call plug#end()
 
 " -- CONFIGS --
+
+" Set theme
+colorscheme dracula
 
 "  Lightline
 let laststatus=2			                    " Always show status line
