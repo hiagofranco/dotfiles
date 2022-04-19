@@ -9,7 +9,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 * zsh-syntax-highlighting  
 * Nerd Font (Choose whatever you like)  
 * Starship:
-``
+```
 curl -fsSL https://starship.rs/install.sh | sh  
 ```
 * Nodejs >= 12.12:  
