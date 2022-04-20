@@ -15,6 +15,11 @@ set autoindent      " Auto indentantion
 set smartindent     " Speaks for itself
 syntax on           " Enable conde highlighting
 
+" Set spell checking and a shortcut to activate it
+set nospell spelllang=en_us
+nnoremap <silent> <F6> :set invspell<cr>
+inoremap <silent> <F6> <C-O>:set invspell<cr>
+
 " -- MATCHING BRACKETS AND QUOTATION MARKS
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
