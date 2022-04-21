@@ -14,10 +14,10 @@ source $ZSH/oh-my-zsh.sh
 
 ### Aliases ###
 alias aptinstall="sudo apt install"
-alias aptupdate="sudo apt-get update"
-alias aptupgrade="sudo apt-get upgrade"
-alias aptautoremove="sudo apt-get autoremove"
-alias aptautoclean="sudo apt-get autoclean"
+alias aptupdate="sudo apt update"
+alias aptupgrade="sudo apt upgrade"
+alias aptautoremove="sudo apt autoremove"
+alias aptautoclean="sudo apt autoclean"
 alias vi="nvim"
 alias vim="nvim"
 
