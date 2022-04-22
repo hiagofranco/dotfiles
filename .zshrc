@@ -18,11 +18,9 @@ alias aptupdate="sudo apt update"
 alias aptupgrade="sudo apt upgrade"
 alias aptautoremove="sudo apt autoremove"
 alias aptautoclean="sudo apt autoclean"
+alias aptremove="sudo apt remove"
 alias vi="nvim"
 alias vim="nvim"
 
 ### Enable ZSH syntaz highlighting ###
 source /home/hiago/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-### Enable starship theme ###
-eval "$(starship init zsh)"
