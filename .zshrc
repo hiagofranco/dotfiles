@@ -5,7 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 ### THEME ### Commented because of starship theme
-#ZSH_THEME="robbyrussell"
+ZSH_THEME="eastwood"
 
 ### PLUGINS ###
 plugins=(git colored-man-pages command-not-found docker pip python ubuntu zsh-autosuggestions)
@@ -13,12 +13,14 @@ plugins=(git colored-man-pages command-not-found docker pip python ubuntu zsh-au
 source $ZSH/oh-my-zsh.sh
 
 ### Aliases ###
+# APT:
 alias aptinstall="sudo apt install"
 alias aptupdate="sudo apt update"
 alias aptupgrade="sudo apt upgrade"
 alias aptautoremove="sudo apt autoremove"
 alias aptautoclean="sudo apt autoclean"
 alias aptremove="sudo apt remove"
+# NVIM: 
 alias vi="nvim"
 alias vim="nvim"
 

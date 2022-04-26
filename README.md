@@ -13,11 +13,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 * zsh-autosuggestions  
 * zsh-syntax-highlighting  
 * Nerd Font (Choose whatever you like)  
-* Starship:
-```
-curl -fsSL https://starship.rs/install.sh | sh  
-```
-* Nodejs >= 12.12:  
+* Nodejs >= 12.12 (used by COC inside Neovim):  
 ```
 curl -sL install-node.vercel.app/lts | bash 
 ```
