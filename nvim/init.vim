@@ -1,3 +1,5 @@
+
+" -------------------------------------------
 " -- THE BASICS --
 set number          " Enable line numbers.
 set mouse=a	        " Enable mouse.
@@ -14,19 +16,18 @@ set wildmenu        " Display all matches when tab complete.
 set autoindent      " Auto indentantion
 set smartindent     " Speaks for itself
 syntax on           " Enable conde highlighting
+" -------------------------------------------
 
-" Set spell checking and a shortcut to activate it
-set nospell spelllang=en_us
-nnoremap <silent> <F6> :set invspell<cr>
-inoremap <silent> <F6> <C-O>:set invspell<cr>
-
+" -------------------------------------------
 " -- MATCHING BRACKETS AND QUOTATION MARKS
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
+" -------------------------------------------
 
+" -------------------------------------------
 " -- PLUGINS --
 call plug#begin()
 
@@ -37,9 +38,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 
 " File Management
-Plug 'scrooloose/nerdtree'                         " Nerdtree
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
-Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Syntax Highlighting
 Plug 'vim-python/python-syntax'                    " Python highlighting
@@ -47,37 +47,31 @@ Plug 'vim-python/python-syntax'                    " Python highlighting
 " Autocomplete code
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Theme
-Plug 'dracula/vim', { 'name': 'dracula' }
-
 call plug#end()
+" -------------------------------------------
 
+" -------------------------------------------
 " -- CONFIGS --
-
-" Set theme
-colorscheme dracula
+" -------------------------------------------
 
 "  Lightline
+" -------------------------------------------
 let laststatus=2			                    " Always show status line
 let g:lightline = {'colorscheme': 'wombat',}    " Set lightline theme
 
 "  Rainbow
+" -------------------------------------------
 let g:rainbow_active = 1    " Set rainbown globally
 
-"  NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-
 " Python Highlighting
+" -------------------------------------------
 let g:python_highlight_all = 1
 
 " COC Packages
+" -------------------------------------------
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-docker', 'coc-clangd']
 
+" -------------------------------------------
 " COC configs
 set hidden          " TextEdit might fail if hidden is not set.
 set cmdheight=2     " Give more space for displaying messages.
@@ -202,8 +196,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" -------------------------------------------
 
-
+" -------------------------------------------
 " Barbar plugin settings
 " Move to previous/next
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
@@ -243,3 +238,22 @@ nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 " Other:
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
+" -------------------------------------------
+
+" -------------------------------------------
+" File Management
+
+" This is the default option:
+"   - Preview window on the right with 50% width
+"   - CTRL-/ will toggle preview window.
+" - Note that this array is passed as arguments to fzf#vim#with_preview function.
+" - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+
+" Preview window on the upper side of the window with 40% height,
+" hidden by default, ctrl-/ to toggle
+let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+
+" Empty value to disable preview window altogether
+let g:fzf_preview_window = []
+" -------------------------------------------
