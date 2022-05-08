@@ -1,6 +1,6 @@
 ![screenshot](https://github.com/hiagofranco/dotfiles/blob/master/images/screenshot.png?raw=true)
 # Hiago's dotfiles for Neovim and ZSH.
-*Note: Install NeoVIM from its [github](https://github.com/neovim/neovim/wiki/Installing-Neovim) page. Don't use APT or it will install an outdated version. Use this dotfiles at your own risk!*
+*Note: Install NeoVIM from its [Github](https://github.com/neovim/neovim/wiki/Installing-Neovim) page. Don't use APT or it will install an outdated version. Use this dotfile at your own risk!*
 
 ## Contents:
 * VIM ([NeoVIM](https://neovim.io/))
