@@ -1,25 +1,33 @@
 
-" -------------------------------------------
-" -- THE BASICS --
-set number          " Enable line numbers.
-set mouse=a	        " Enable mouse.
-set noshowmode      " Prevent non-normal modes showing in powerline and below powerline.
-set noswapfile      " No swap.
-set nobackup	    " No auto backups.
-set nowritebackup
-set expandtab       " Use spaces instead of tabs.
-set smarttab        " Be smart using tabs.
-set shiftwidth=4    " One tab == four spaces.
-set tabstop=4       " One tab == four spaces.
-set mouse=nicr      " Enable mouse scrolling.
-set wildmenu        " Display all matches when tab complete.
-set autoindent      " Auto indentantion
-set smartindent     " Speaks for itself
-syntax on           " Enable conde highlighting
-" -------------------------------------------
 
-" -------------------------------------------
-" -- MATCHING BRACKETS AND QUOTATION MARKS
+
+" My personal preferences for nvim. 
+" Please refer to github.com/hiagofranco/dotfiles
+" AUTHOR: Hiago De Franco
+" Date: may-08-2022
+
+
+
+
+" -- BASIC CONFIGURATION --
+set number                  " Enable line numbers.
+set mouse=a	                " Enable mouse.
+set noshowmode              " Prevent non-normal modes showing in powerline and below powerline.
+set noswapfile              " No swap.
+set nobackup	            " No auto backups.
+set nowritebackup
+set expandtab               " Use spaces instead of tabs.
+set smarttab                " Be smart using tabs.
+set shiftwidth=4            " One tab == four spaces.
+set tabstop=4               " One tab == four spaces.
+set mouse=nicr              " Enable mouse scrolling.
+set wildmenu                " Display all matches when tab complete.
+set autoindent              " Auto indentantion
+set smartindent             " Speaks for itself
+set clipboard=unnamedplus   " Set clipboard to system's clipboard
+colorscheme pablo           " Color =)
+syntax on                   " Enable conde highlighting
+" -- Match brackets and quotation marks ("", {}...)
 inoremap ( ()<Esc>i
 inoremap { {}<Esc>i
 inoremap [ []<Esc>i
@@ -27,52 +35,59 @@ inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 " -------------------------------------------
 
-" -------------------------------------------
-" -- PLUGINS --
+
+
+" -- VIM PLUGINS --
 call plug#begin()
 
-" Basic Plugins
-Plug 'frazrepo/vim-rainbow'
-Plug 'itchyny/lightline.vim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+    " Basic Plugins
+    Plug 'frazrepo/vim-rainbow'
+    Plug 'itchyny/lightline.vim'
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'romgrk/barbar.nvim'
 
-" File Management
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+    " File Management
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
 
-" Syntax Highlighting
-Plug 'vim-python/python-syntax'                    " Python highlighting
+    " Syntax Highlighting
+    Plug 'vim-python/python-syntax'                    " Python highlighting
 
-" Autocomplete code
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    " Autocomplete code
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 " -------------------------------------------
 
-" -------------------------------------------
-" -- CONFIGS --
-" -------------------------------------------
 
-"  Lightline
-" -------------------------------------------
+
+
+"  LIGTHLINE PLUGIN CONFIG
 let laststatus=2			                    " Always show status line
 let g:lightline = {'colorscheme': 'wombat',}    " Set lightline theme
-
-"  Rainbow
 " -------------------------------------------
+
+
+
+"  RAINBOWN PLUGIN CONFIG
 let g:rainbow_active = 1    " Set rainbown globally
+" ------------------------------------------
 
-" Python Highlighting
-" -------------------------------------------
+
+
+" PYTHON HIGHLIGHTING CONFIG 
 let g:python_highlight_all = 1
-
-" COC Packages
 " -------------------------------------------
+
+
+
+" COC PACKAGES INSTALLED
 let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-docker', 'coc-clangd']
-
 " -------------------------------------------
-" COC configs
+
+
+
+" COC PACKAGES CONFIG
 set hidden          " TextEdit might fail if hidden is not set.
 set cmdheight=2     " Give more space for displaying messages.
 set updatetime=300  " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
@@ -198,8 +213,10 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " -------------------------------------------
 
-" -------------------------------------------
-" Barbar plugin settings
+
+
+" BARBAR PLUGIN CONFIG
+"
 " Move to previous/next
 nnoremap <silent>    <A-,> :BufferPrevious<CR>
 nnoremap <silent>    <A-.> :BufferNext<CR>
@@ -240,9 +257,9 @@ nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
 " :BarbarDisable - very bad command, should never be used
 " -------------------------------------------
 
-" -------------------------------------------
-" File Management
 
+
+" FILE MANAGEMENT CONFIG
 " This is the default option:
 "   - Preview window on the right with 50% width
 "   - CTRL-/ will toggle preview window.

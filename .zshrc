@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Add PIP3 to PATH
+export PATH="$PATH:/home/hiago/.local/bin"
+
 ### THEME ### Commented because of starship theme
 ZSH_THEME="eastwood"
 
@@ -13,14 +16,12 @@ plugins=(git colored-man-pages command-not-found docker pip python ubuntu zsh-au
 source $ZSH/oh-my-zsh.sh
 
 ### Aliases ###
-# APT:
 alias aptinstall="sudo apt install"
+alias aptremove="sudo apt remove"
 alias aptupdate="sudo apt update"
 alias aptupgrade="sudo apt upgrade"
 alias aptautoremove="sudo apt autoremove"
 alias aptautoclean="sudo apt autoclean"
-alias aptremove="sudo apt remove"
-# NVIM: 
 alias vi="nvim"
 alias vim="nvim"
 
