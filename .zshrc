@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/home/hiago/.local/bin"
 
 ### THEME ### Commented because of starship theme
-ZSH_THEME="eastwood"
+ZSH_THEME="robbyrussell"
 
 ### PLUGINS ###
 plugins=(git colored-man-pages command-not-found docker pip python ubuntu zsh-autosuggestions)
