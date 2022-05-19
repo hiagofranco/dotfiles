@@ -7,6 +7,10 @@
     + Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug)
 * ZSH
     + Using [oh-my-zsh](https://ohmyz.sh/)
+* How to load gnome terminal profile:
+```
+dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-hiago.dconf
+```
 
 ## Plugins Used by NeoVIM:
 * [Vim-Rainbown](https://github.com/frazrepo/vim-rainbow)
