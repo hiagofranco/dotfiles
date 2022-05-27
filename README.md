@@ -1,26 +1,17 @@
 ![screenshot](https://github.com/hiagofranco/dotfiles/blob/master/images/screenshot.png?raw=true)
-# Hiago's dotfiles for Neovim and ZSH.
+# Hiago's dotfiles for Neovim and ZSH
+
 *Note: Install NeoVIM from its [Github](https://github.com/neovim/neovim/wiki/Installing-Neovim) page. Don't use APT or it will install an outdated version. Use this dotfile at your own risk!*
 
-## Contents:
+## Contents
+
 * VIM ([NeoVIM](https://neovim.io/))
     + Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug)
 * ZSH
     + Using [oh-my-zsh](https://ohmyz.sh/)
-* How to load gnome terminal profile:
-```
-dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-hiago.dconf
-```
 
-## Plugins Used by NeoVIM:
-* [Vim-Rainbown](https://github.com/frazrepo/vim-rainbow)
-* [Lightline](https://github.com/itchyny/lightline.vim)
-* [Barbar](https://github.com/romgrk/barbar.nvim)
-* [FZF](https://github.com/junegunn/fzf.vim)
-* [Python-syntax](https://github.com/vim-python/python-syntax)
-* [COC](https://github.com/neoclide/coc.nvim)
+## Dependencies
 
-## Dependencies:
 * ZSH:
 ```
 sudo apt install zsh
@@ -41,3 +32,4 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 ```
 curl -sL install-node.vercel.app/lts | bash 
 ```
+* [Clang](https://clangd.llvm.org/) (Coc language server)
