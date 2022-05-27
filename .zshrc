@@ -1,9 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -15,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/home/hiago/.local/bin"
 
 ### THEME ### Commented because of starship theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="murilasso"
 
 ### PLUGINS ###
 plugins=(git colored-man-pages zsh-autosuggestions)
@@ -35,7 +29,5 @@ alias vim="nvim"
 ### Enable ZSH syntaz highlighting ###
 source /home/hiago/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source ~/gruvbox_256pallete.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+### Enable colors for vim theme
+source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
