@@ -9,7 +9,8 @@
     + Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug)
 * ZSH
     + Using [oh-my-zsh](https://ohmyz.sh/)
-
+* ZSH custom theme
+    + Place the custom theme under `~/.oh_my_zsh/custom/theme`
 ## Dependencies
 
 * ZSH:

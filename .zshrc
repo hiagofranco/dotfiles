@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/home/hiago/.local/bin"
 
 ### THEME ### Commented because of starship theme
-ZSH_THEME="murilasso"
+ZSH_THEME="aussiegeek-custom"
 
 ### PLUGINS ###
 plugins=(git colored-man-pages zsh-autosuggestions)
