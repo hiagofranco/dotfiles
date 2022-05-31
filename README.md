@@ -11,6 +11,8 @@
     + Using [oh-my-zsh](https://ohmyz.sh/)
 * ZSH custom theme
     + Place the custom theme under `~/.oh_my_zsh/custom/theme`
+* Gnome Terminal backgroud color:
+    + #282828
 ## Dependencies
 
 * ZSH:
