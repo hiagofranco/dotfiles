@@ -50,8 +50,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'kyazdani42/nvim-web-devicons'     " Icons for barbar
-Plug 'romgrk/barbar.nvim'               " Tabs for different files
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
@@ -65,7 +65,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " -- COC extensions
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-cmake', 'coc-docker', 'coc-markdownlint', 'coc-pyright', 'coc-browser']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-cmake', 'coc-docker', 'coc-pyright', 'coc-browser']
 
 "-- COC Configs below"
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
