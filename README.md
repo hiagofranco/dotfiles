@@ -36,3 +36,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 curl -sL install-node.vercel.app/lts | bash 
 ```
 * [Clang](https://clangd.llvm.org/) (Coc language server)
+* Tmux
+* Tmux Plugin Manager ([TPM](https://github.com/tmux-plugins/tpm))
+* Tmux theme [Dracula](https://draculatheme.com/tmux)
