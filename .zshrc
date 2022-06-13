@@ -2,6 +2,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Use tmux as the default terminal
+# If not running interactively, do not do anything
+#[[ $- != i ]] && return
+# Otherwise start tmux
+[[ -z "$TMUX" ]] && exec tmux
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -31,3 +37,9 @@ source /home/hiago/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-
 
 ### Enable colors for vim theme
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
+
+### Enable fuck
+eval $(thefuck --alias)
+
+# Fix autosuggestions with tmux terminal
+export TERM=xterm-256color
