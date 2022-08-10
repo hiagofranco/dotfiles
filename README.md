@@ -1,9 +1,9 @@
 ![screenshot](https://github.com/hiagofranco/dotfiles/blob/master/images/screenshot.png?raw=true)
-# Hiago's dotfiles for Neovim and ZSH
+# Hiago's dotfiles for Neovim and ZSH #
 
 *Note: Install NeoVIM from its [Github](https://github.com/neovim/neovim/wiki/Installing-Neovim) page. Don't use APT or it will install an outdated version. Use this dotfile at your own risk!*
 
-## Contents
+## Contents ##
 
 * VIM ([NeoVIM](https://neovim.io/))
     + Plugins are managed with [vim-plug](https://github.com/junegunn/vim-plug)
@@ -13,7 +13,7 @@
     + Place the custom theme under `~/.oh_my_zsh/custom/theme`
 * Gnome Terminal backgroud color:
     + #282828
-## Dependencies
+## Dependencies ##
 
 * ZSH:
 ```
@@ -33,9 +33,21 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 * [Nerd Font](https://www.nerdfonts.com/) (I recommend RobotoMono Nerd Font)  
 * Nodejs >= 12.12 (used by COC inside NeoVIM):  
 ```
+sudo su
 curl -sL install-node.vercel.app/lts | bash 
 ```
 * [Clang](https://clangd.llvm.org/) (Coc language server)
 * Tmux
 * Tmux Plugin Manager ([TPM](https://github.com/tmux-plugins/tpm))
 * Tmux theme [Dracula](https://draculatheme.com/tmux)
+
+## Install ##
+* Copy custom aussiegeek theme:
+```
+cp aussiegeek-custom.zsh-theme ~/.oh-my-zsh/themes/aussiegeek-custom.zsh-theme
+```
+* Install tmux theme:
+```
+tmux source ~/.tmux.conf
+Then press "Ctrl-a + I" (capital i)
+```
