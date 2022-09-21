@@ -16,7 +16,7 @@ set smarttab                  " Be smart using tabs
 set shiftwidth=4              " One tab == four spaces
 set tabstop=4                 " One tab == four spaces
 
-set mouse=nicr                " Enable mouse scrolling
+set mouse=a                   " Enable mouse scrolling
 
 set wildmenu                  " Display all matches when tab complete
 
@@ -65,7 +65,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " -- COC extensions
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-cmake', 'coc-docker', 'coc-pyright', 'coc-browser', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-cmake', 'coc-docker', 'coc-pyright', 'coc-browser', 'coc-snippets', 'coc-markdownlint']
 
 "-- COC Configs below"
 " 
