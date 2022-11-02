@@ -29,6 +29,8 @@ set updatetime=100            " Set update time for git plugin
 
 set noshowmode                " Prevent non-normal modes showing in airline.
 
+set ignorecase                " Search without case sensitive by default
+
 syntax on                     " Enable code highlighting
 
 " -- Match brackets and quotation marks ("", {}...)
