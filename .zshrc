@@ -20,12 +20,6 @@ plugins=(git colored-man-pages zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 ### Aliases ###
-alias aptinstall="sudo apt install"
-alias aptremove="sudo apt remove"
-alias aptupdate="sudo apt update"
-alias aptupgrade="sudo apt upgrade"
-alias aptautoremove="sudo apt autoremove"
-alias aptautoclean="sudo apt autoclean"
 alias vi="nvim"
 alias vim="nvim"
 
@@ -34,6 +28,3 @@ source /home/hiago/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-
 
 ### Enable colors for vim theme
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
-
-# Fix autosuggestions with tmux terminal
-export TERM=xterm-256color
