@@ -18,6 +18,10 @@
 
 ## Dependencies ##
 
+* Papirus-icon-theme
+
+* Rofi
+
 * ZSH:
 
 ```text
