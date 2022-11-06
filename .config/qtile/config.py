@@ -25,33 +25,41 @@ FONT_NERD = "FiraCode Nerd Font Mono"
 FONT_SIZE = 14
 PADDING = 3
 COLORS = {
-    "rosewater"   : "#f4dbd6",
-    "flamingo"    : "#f0c6c6",
-    "pink"        : "#f5bde6",
-    "mauve"       : "#c6a0f6",
-    "red"         : "#ed8796",
-    "maroon"      : "#ee99a0",
-    "peach"       : "#f5a97f",
-    "yellow"      : "#eed49f",
-    "green"       : "#a6da95",
-    "teal"        : "#8bd5ca",
-    "sky"         : "#91d7e3",
-    "sapphire"    : "#7dc4e4",
-    "blue"        : "#8aadf4",
-    "lavender"    : "#b7bdf8",
-    "text"        : "#cad3f5",
-    "subtext1"    : "#b8c0e0",
-    "subtext0"    : "#a5adcb",
-    "overlay2"    : "#939ab7",
-    "overlay1"    : "#8087a2",
-    "overlay0"    : "#6e738d",
-    "surface2"    : "#5b6078",
-    "surface1"    : "#494d64",
-    "surface0"    : "#363a4f",
-    "base"        : "#24273a",
-    "mantle"      : "#1e2030",
-    "crust"       : "#181926"
+    "rosewater"   : "#f5e0dc",
+    "flamingo"    : "#f2cdcd",
+    "pink"        : "#f5c2e7",
+    "mauve"       : "#cba6f7",
+    "red"         : "#f38ba8",
+    "maroon"      : "#eba0ac",
+    "peach"       : "#fab387",
+    "yellow"      : "#f9e2af",
+    "green"       : "#a6e3a1",
+    "teal"        : "#94e2d5",
+    "sky"         : "#89dceb",
+    "sapphire"    : "#74c7ec",
+    "blue"        : "#89b4fa",
+    "lavender"    : "#b4befe",
+    "text"        : "#cdd6f4",
+    "subtext1"    : "#bac2de",
+    "subtext0"    : "#a6adc8",
+    "overlay2"    : "#9399b2",
+    "overlay1"    : "#7f849c",
+    "overlay0"    : "#6c7086",
+    "surface2"    : "#585b70",
+    "surface1"    : "#45475a",
+    "surface0"    : "#313244",
+    "base"        : "#1e1e2e",
+    "mantle"      : "#181825",
+    "crust"       : "#11111b"
 }
+
+#  _    _             _        
+# | |  | |           | |       
+# | |__| | ___   ___ | | _____ 
+# |  __  |/ _ \ / _ \| |/ / __|
+# | |  | | (_) | (_) |   <\__ \
+# |_|  |_|\___/ \___/|_|\_\___/
+
 # Run autostart scipt automatically at startup
 @hook.subscribe.startup_once
 def autostart():
@@ -86,6 +94,22 @@ keys = [
         lazy.layout.up(),
         desc="Move focus up"
     ),
+    Key([MOD], "Left",
+        lazy.layout.left(),
+        desc="Move focus to left"
+    ),
+    Key([MOD], "Right",
+        lazy.layout.right(),
+        desc="Move focus to right"
+    ),
+    Key([MOD], "Down",
+        lazy.layout.down(),
+        desc="Move focus down"
+    ),
+    Key([MOD], "Up",
+        lazy.layout.up(),
+        desc="Move focus up"
+    ),
     Key([MOD], "space",
         lazy.layout.next(),
         desc="Move window focus to other window"
@@ -109,6 +133,22 @@ keys = [
         lazy.layout.shuffle_up(),
         desc="Move window up"
     ),
+    Key([MOD, "shift"], "Left",
+        lazy.layout.shuffle_left(),
+        desc="Move window to the left"
+    ),
+    Key([MOD, "shift"], "Right",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right"
+    ),
+    Key([MOD, "shift"], "Down",
+        lazy.layout.shuffle_down(),
+        desc="Move window down"
+    ),
+    Key([MOD, "shift"], "Up",
+        lazy.layout.shuffle_up(),
+        desc="Move window up"
+    ),
     
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -125,6 +165,22 @@ keys = [
         desc="Grow window down"
     ),
     Key([MOD, "control"], "k",
+        lazy.layout.grow_up(),
+        desc="Grow window up"
+    ),
+    Key([MOD, "control"], "Left",
+        lazy.layout.grow_left(),
+        desc="Grow window to the left"
+    ),
+    Key([MOD, "control"], "Right",
+        lazy.layout.grow_right(),
+        desc="Grow window to the right"
+    ),
+    Key([MOD, "control"], "Down",
+        lazy.layout.grow_down(),
+        desc="Grow window down"
+    ),
+    Key([MOD, "control"], "Up",
         lazy.layout.grow_up(),
         desc="Grow window up"
     ),
@@ -180,6 +236,7 @@ keys = [
     # - Shutter
     # - libghc-iwlib-dev
     # - pip install iwlib
+    # - pip install dbus-next
     
     Key([MOD], "b",
         lazy.spawn("brave-browser"),
@@ -243,10 +300,9 @@ keys = [
 groups = [
     Group("1", label=""),
     Group("2", label=""),
-    Group("3", label=""),
-    Group("4", label=""),
-    Group("5", label="調"),
-    Group("6", label="ﭮ")
+    Group("3", label=""),
+    Group("4", label="調"),
+    Group("5", label="ﭮ")
 ]
 
 for i in groups:
@@ -323,85 +379,126 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        wallpaper="~/.config/qtile/images/wallpaper_astro.jpg",
         top=bar.Bar(
             [
                 widget.Spacer(
-                    length = 10
+                    length     = 20,
+                    background = COLORS["base"] 
                 ),
                 widget.Image(
-                    filename = "~/.config/qtile/images/flat_linux.png",
+                    filename   = "~/.config/qtile/images/flat_linux.png",
+                    margin     = 2,
+                    background = COLORS["base"] 
                 ),
-                widget.Spacer(
-                    length = 10
+                widget.Image(
+                    filename='~/.config/qtile/images/6.png',
                 ),
                 widget.GroupBox(
                     fontsize                    = 27,
-                    margin_y                    = 3,
-                    margin_x                    = 5,
-                    borderwidth                 = 0,
+                    borderwidth                 = 3,
                     font                        = FONT_NERD,
                     active                      = COLORS["green"],
                     block_highlight_text_color  = COLORS["red"],
                     inactive                    = COLORS["surface0"],
+                    foreground                  ="#4B427E",
+                    background                  ="#4B427E",
+                    this_current_screen_border  ="#52548D",
+                    this_screen_border          ="#52548D",
+                    other_current_screen_border ="#52548D",
+                    other_screen_border         ="#52548D",
+                    urgent_border               ="#52548D",
                     rounded                     = True,
                     disable_drag                = True,
                 ),
-                widget.CurrentLayout(),
-                # widget.StatusNotifier() # If wayland, disable Systray,
-                widget.Systray(),
-                widget.Spacer(
-                    length = bar.STRETCH,
+                widget.Image(
+                    filename="~/.config/qtile/images/5.png",
+                ),
+                widget.CurrentLayoutIcon(
+                    background = "#52548D",
+                    padding    = 0,
+                    scale      = 0.5,
+                ),
+                widget.CurrentLayout(
+                    background ="#52548D"
                 ),
                 widget.Image(
-                    filename = "~/.config/qtile/images/sun.png",
-                    margin   = 7,
+                    filename="~/.config/qtile/images/4.png",                
+                ),
+                widget.WindowName(
+                    background         = "#7676B2",
+                    format             = "{name}",
+                    font               = FONT_NERD,
+                    empty_group_string = "Desktop"
+                ),
+                widget.Image(
+                    filename="~/.config/qtile/images/3.png",                
+                ),   
+                # widget.StatusNotifier() # If wayland, disable Systray,
+                widget.Systray(
+                    background="#52548D",
+                    fontsize=2
+                ),
+                widget.TextBox(
+                    text=" ",
+                    background="#52548D"
+                ),
+                widget.Image(
+                    filename="~/.config/qtile/images/2.png",                
+                    background="#52548D"
+                ),                      
+                widget.Image(
+                    filename   = "~/.config/qtile/images/sun.png",
+                    background = "#4B427E"
                 ),
                 widget.Backlight(
                     font                 = FONT_NERD,
                     foreground           = COLORS["yellow"],
                     backlight_name       = "amdgpu_bl1",
-                    fontsize             = 12,
-                    padding              = 0,
-                ),
-                widget.Spacer(
-                    length = 10
+                    fontsize             = 14,
+                    padding              = 2,
+                    background           = "#4B427E"
                 ),
                 widget.Image(
-                    filename = "~/.config/qtile/images/vol.png",
-                    margin   = 8,
+                    filename   = "~/.config/qtile/images/vol.png",
+                    background = "#4B427E"
                 ),
                 widget.PulseVolume(
                     cardid      = 1,
                     foreground  = COLORS["blue"],
-                    fontsize    = 12,
-                    padding     = 0,
+                    fontsize    = 14,
+                    padding     = 2,
+                    background  = "#4B427E"
                 ),
-                widget.Spacer(
-                    length = 10,
-                ),                       
+                widget.Battery(
+                    format         = " {char} {percent:1.0%}",
+                    font           = FONT_NERD,
+                    foreground     = COLORS["red"],
+                    fontsize       = 14,
+                    padding        = 2,
+                    charge_char    = "",
+                    discharge_char = "",
+                    empty_char     = "",
+                    full_char      = "",
+                    update_interval= 15, # seconds
+                    background     = "#4B427E"
+                ),
                 widget.Image(
-                    filename  = '~/.config/qtile/images/bat.png',
-                    margin    = 7
-                ),         
-                widget.Battery(format=' {percent:2.0%}',
-                    font        = FONT_NERD,
-                    foreground  = COLORS["red"],
-                    fontsize    = 12,
-                    padding     = 0,
+                    filename   = "~/.config/qtile/images/1.png",                
+                    background = "#4B427E"
                 ),
-                widget.Spacer(
-                    length = 10,
-                ),                       
                 widget.Clock(
-                    format="%d-%m-%Y %a %H:%M"
+                    format     = "%d/%m/%Y %a %H:%M",
+                    background = "#1F1D2E",
+                    font       = FONT_NERD 
                 ),
                 widget.Spacer(
-                    length = 10,
+                    length     = 18,
+                    background = "#1F1D2E"
                 ),                       
             ],
-            40,
-            margin      = [12, 12, 12, 12],
-            background  = COLORS["base"]
+            30,
+            margin = [6, 6, 6, 6]
         ),
     ),
 ]
