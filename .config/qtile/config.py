@@ -521,7 +521,7 @@ screens = [
                 ),
                 
                 widget.Battery(
-                    format         = " {char} {percent:1.0%}",
+                    format         = " {char} {percent:2.0%}",
                     font           = FONT_NERD,
                     foreground     = COLORS["red"],
                     fontsize       = 14,
