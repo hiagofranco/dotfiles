@@ -11,6 +11,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 import os
 import subprocess
+import re
 
 #  _____        __ _                
 # |  __ \      / _(_)               
@@ -236,7 +237,7 @@ keys = [
     # - Shutter
     # - libghc-iwlib-dev
     # - pip install iwlib
-    # - pip install dbus-next
+    # https://github.com/jluttine/rofi-power-menu
     
     Key([MOD], "b",
         lazy.spawn("brave-browser"),
@@ -301,8 +302,9 @@ groups = [
     Group("1", label=""),
     Group("2", label=""),
     Group("3", label=""),
-    Group("4", label="調"),
-    Group("5", label="ﭮ")
+    Group("4", label="嗢"),
+    Group("5", label="調"),
+    Group("6", label="ﭮ")
 ]
 
 for i in groups:
@@ -379,21 +381,30 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        
         wallpaper="~/.config/qtile/images/wallpaper_astro.jpg",
+        
         top=bar.Bar(
+            
             [
                 widget.Spacer(
                     length     = 20,
                     background = COLORS["base"] 
                 ),
+                
                 widget.Image(
                     filename   = "~/.config/qtile/images/flat_linux.png",
                     margin     = 2,
-                    background = COLORS["base"] 
+                    background = COLORS["base"],
+                    mouse_callbacks = {
+                        "Button1": lazy.spawn("rofi -show drun")
+                    }
                 ),
+                
                 widget.Image(
                     filename='~/.config/qtile/images/6.png',
                 ),
+                
                 widget.GroupBox(
                     fontsize                    = 27,
                     borderwidth                 = 3,
@@ -411,71 +422,110 @@ screens = [
                     rounded                     = True,
                     disable_drag                = True,
                 ),
+                
                 widget.Image(
                     filename="~/.config/qtile/images/5.png",
                 ),
+                
                 widget.CurrentLayoutIcon(
                     background = "#52548D",
                     padding    = 0,
                     scale      = 0.5,
                 ),
+                
                 widget.CurrentLayout(
                     background ="#52548D"
                 ),
+                
                 widget.Image(
                     filename="~/.config/qtile/images/4.png",                
                 ),
+                
                 widget.WindowName(
                     background         = "#7676B2",
                     format             = "{name}",
                     font               = FONT_NERD,
                     empty_group_string = "Desktop"
                 ),
+                
                 widget.Image(
                     filename="~/.config/qtile/images/3.png",                
                 ),   
+                
                 # widget.StatusNotifier() # If wayland, disable Systray,
                 widget.Systray(
                     background="#52548D",
                     fontsize=2
                 ),
+                
                 widget.TextBox(
                     text=" ",
                     background="#52548D"
                 ),
+                
                 widget.Image(
                     filename="~/.config/qtile/images/2.png",                
                     background="#52548D"
                 ),                      
-                widget.Image(
-                    filename   = "~/.config/qtile/images/sun.png",
-                    background = "#4B427E"
+                
+                widget.TextBox(
+                    text       = "盛",    
+                    fontsize   = 27,
+                    padding    = 2,
+                    background = "#4B427E",
+                    foreground = COLORS["yellow"]
                 ),
+                
                 widget.Backlight(
                     font                 = FONT_NERD,
                     foreground           = COLORS["yellow"],
-                    backlight_name       = "amdgpu_bl1",
+                    backlight_name       = "amdgpu_bl0",
                     fontsize             = 14,
-                    padding              = 2,
+                    padding              = 8,
                     background           = "#4B427E"
                 ),
-                widget.Image(
-                    filename   = "~/.config/qtile/images/vol.png",
-                    background = "#4B427E"
+                
+                widget.TextBox(
+                    text       = "",    
+                    fontsize   = 25,
+                    padding    = 8,
+                    background = "#4B427E",
+                    foreground = COLORS["blue"]
                 ),
+                
                 widget.PulseVolume(
                     cardid      = 1,
                     foreground  = COLORS["blue"],
                     fontsize    = 14,
-                    padding     = 2,
+                    padding     = 8,
                     background  = "#4B427E"
                 ),
+
+                widget.Net(
+                    fontsize   = 14,
+                    padding    = 8,
+                    background = "#4B427E",
+                    foreground = COLORS["flamingo"],
+                    format = "{down} ↓↑{up}"
+                ),
+
+                widget.Wlan(
+                    background  = "#4B427E",
+                    font = FONT_NERD,
+                    fontsize = 14,
+                    padding = 0,
+                    foreground = COLORS["green"],
+                    interface = "wlp4s0",
+                    disconnected_message = "睊",
+                    format = "{essid} {percent:2.0%}"
+                ),
+                
                 widget.Battery(
                     format         = " {char} {percent:1.0%}",
                     font           = FONT_NERD,
                     foreground     = COLORS["red"],
                     fontsize       = 14,
-                    padding        = 2,
+                    padding        = 8,
                     charge_char    = "",
                     discharge_char = "",
                     empty_char     = "",
@@ -483,15 +533,28 @@ screens = [
                     update_interval= 15, # seconds
                     background     = "#4B427E"
                 ),
+                
                 widget.Image(
                     filename   = "~/.config/qtile/images/1.png",                
                     background = "#4B427E"
                 ),
+                
                 widget.Clock(
                     format     = "%d/%m/%Y %a %H:%M",
                     background = "#1F1D2E",
                     font       = FONT_NERD 
                 ),
+
+                widget.TextBox(
+                    text            = "",
+                    background      = "#1F1D2E",
+                    fontsize        = 20,
+                    padding         = 5,
+                    mouse_callbacks = {
+                        "Button1": lazy.spawn("rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/logout/lockscreen\"")
+                    }
+                ),
+
                 widget.Spacer(
                     length     = 18,
                     background = "#1F1D2E"
