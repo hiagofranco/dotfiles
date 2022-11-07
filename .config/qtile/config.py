@@ -11,7 +11,6 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 import os
 import subprocess
-import re
 
 #  _____        __ _                
 # |  __ \      / _(_)               
@@ -286,6 +285,10 @@ keys = [
     Key([MOD], "f",
         lazy.window.toggle_fullscreen(),
         desc="Set window fullscreen"
+    ),
+    Key([MOD], "q",
+        lazy.spawn("rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/logout/lockscreen\""),
+        desc="Open power menu"
     ),
 ]
 
