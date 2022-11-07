@@ -20,7 +20,7 @@ import subprocess
 # |_____/ \___|_| |_|_| |_|\___|___/                                   
                                    
 MOD = "mod4" # Super Key
-TERMINAL = "gnome-terminal" 
+TERMINAL = "alacritty" 
 FONT_NERD = "FiraCode Nerd Font Mono"
 FONT_SIZE = 14
 PADDING = 3
