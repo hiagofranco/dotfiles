@@ -60,11 +60,17 @@ COLORS = {
 # | |  | | (_) | (_) |   <\__ \
 # |_|  |_|\___/ \___/|_|\_\___/
 
-# Run autostart scipt automatically at startup
+# Run autostart script automatically at startup
 @hook.subscribe.startup_once
 def autostart():
+    # execute autostart.sh
     path = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.call([path])
+
+def backlight_file_name() -> str:
+    # Get Backlight file name
+    name = os.listdir("/sys/class/backlight/")
+    return str(name[0])
 
 #  _  __              
 # | |/ /              
@@ -482,7 +488,7 @@ screens = [
                 widget.Backlight(
                     font                 = FONT_NERD,
                     foreground           = COLORS["yellow"],
-                    backlight_name       = "amdgpu_bl0",
+                    backlight_name       = backlight_file_name(),
                     fontsize             = 14,
                     padding              = 8,
                     background           = "#4B427E"
