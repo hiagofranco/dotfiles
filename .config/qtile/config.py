@@ -540,7 +540,8 @@ screens = [
                     empty_char     = "",
                     full_char      = "",
                     update_interval= 15, # seconds
-                    background     = "#4B427E"
+                    background     = "#4B427E",
+                    show_short_text= False
                 ),
                 
                 widget.Image(

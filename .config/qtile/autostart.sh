@@ -5,4 +5,4 @@ xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Tapping Enabled" 1
 xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Natural Scrolling Enabled" 1
 
 # Configure screensaver
-xss-lock --tranfer-sleep-lock -- i3lock -n -i ~/.config/qtile/images/screensaver.png &
+xss-lock -- i3lock -n -i ~/.config/qtile/images/screensaver.png &
