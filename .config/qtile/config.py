@@ -249,11 +249,11 @@ keys = [
         desc="Spawn Internet Browser"
     ),
     Key([], "XF86AudioRaiseVolume",
-        lazy.spawn("amixer -c 1 set Master 5%+"),
+        lazy.spawn("amixer -D pulse set Master 5%+"),
         desc="Increase Volume by 5%"
     ),
     Key([], "XF86AudioLowerVolume",
-        lazy.spawn("amixer -c 1 set Master 5%-"),
+        lazy.spawn("amixer -D pulse set Master 5%-"),
         desc="Decrease Volume by 5%"
     ),
     Key([], "XF86MonBrightnessUp",
@@ -265,7 +265,7 @@ keys = [
         desc="Decrease brightness level by 10%"
     ),
     Key([], "XF86AudioMute",
-        lazy.spawn("amixer -c 1 -D pulse set Master 1+ toggle"),
+        lazy.spawn("amixer -D pulse set Master 1+ toggle"),
         desc="Volume Mute"
     ),
     Key([], "XF86AudioPlay",
