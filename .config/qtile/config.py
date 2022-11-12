@@ -296,6 +296,10 @@ keys = [
         lazy.spawn("rofi -show power-menu -modi \"power-menu:rofi-power-menu --choices=shutdown/reboot/logout/lockscreen\""),
         desc="Open power menu"
     ),
+    Key([MOD], "e",
+        lazy.spawn("nemo"),
+        desc="Open files"
+    ),
 ]
 
 #   _____                           
@@ -508,14 +512,6 @@ screens = [
                     fontsize    = 14,
                     padding     = 8,
                     background  = "#4B427E"
-                ),
-
-                widget.Net(
-                    fontsize   = 14,
-                    padding    = 8,
-                    background = "#4B427E",
-                    foreground = COLORS["flamingo"],
-                    format = "{down} ↓↑{up}"
                 ),
 
                 widget.Wlan(
