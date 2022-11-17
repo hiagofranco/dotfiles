@@ -8,23 +8,17 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Add PIP3 to PATH
+# Add .local to PATH
 export PATH="$PATH:/home/hiago/.local/bin"
 
-### THEME ### Commented because of starship theme
 ZSH_THEME="aussiegeek-custom"
 
-### PLUGINS ###
-plugins=(git colored-man-pages zsh-autosuggestions)
+plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-### Aliases ###
 alias vi="nvim"
 alias vim="nvim"
 
-### Enable ZSH syntaz highlighting ###
-source /home/hiago/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-### Enable colors for vim theme
+# Enable colors for vim theme
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
