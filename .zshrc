@@ -19,6 +19,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi="nvim"
 alias vim="nvim"
+alias cat="bat"
 
 # Enable colors for vim theme
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"

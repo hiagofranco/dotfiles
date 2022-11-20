@@ -286,6 +286,7 @@ screens = [
                 widget.Spacer(),
                 # Systray
                 widget.Systray(),
+                widget.Spacer(length = 5),
                 # CPU
                 modify(
                     widget.TextBox,
