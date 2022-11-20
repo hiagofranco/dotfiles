@@ -247,6 +247,15 @@ screens = [
                     backlight_name = "amdgpu_bl0",
                     **get_powerline("arrow_right"),
                 ),
+                #WiFi
+                modify(
+                    widget.Wlan,
+                    background = colors["blue"],
+                    foreground = colors["bg"],
+                    interface = "wlp4s0",
+                    format = "{essid:.8} {percent:2.0%}",
+                    **get_powerline("arrow_right"),
+                ),
                 # Updates
                 widget.TextBox(
                     background = colors["red"],
