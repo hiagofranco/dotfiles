@@ -362,7 +362,7 @@ screens = [
                     widget.Clock,
                     background = colors["magenta"],
                     foreground = colors["bg"],
-                    format = "%D %a %H:%M ",
+                    format = "%d/%m/%y %a %H:%M ",
                     **get_decoration("right"),
                 ),
                 widget.TextBox(
