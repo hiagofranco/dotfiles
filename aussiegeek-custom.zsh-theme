@@ -1,5 +1,5 @@
 
-PROMPT='$fg_bold[red][$fg_bold[yellow]%n$fg_bold[green]@$fg[blue]%m $FG[161]%~$(git_prompt_info)$fg[yellow]$(ruby_prompt_info)$fg_bold[red]]$reset_color
+PROMPT='$fg_bold[red][$fg_bold[yellow]%n$fg_bold[green]@$fg[blue]%m $fg_bold[red]%~$(git_prompt_info)$fg[yellow]$(ruby_prompt_info)$fg_bold[red]]$reset_color
 $ '
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="$fg_bold[yellow] <"
