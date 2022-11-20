@@ -98,6 +98,10 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next music"),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous music"),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause music"),
+
+    # Rofi menus
+    Key([mod], "s", lazy.spawn("/home/hiago/.config/rofi/scripts/launcher_t1"), desc="Rofi launcher"),
+    Key([mod], "p", lazy.spawn("/home/hiago/.config/rofi/scripts/powermenu_t1"), desc="Rofi powermenu"),
 ]
 
 #groups = [Group(i) for i in "123qwe"]
@@ -186,12 +190,10 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(length = 2),
-                widget.CurrentLayoutIcon(),
-                widget.Spacer(length = 5),
                 # Logo
                 modify(
                     widget.TextBox,
-                    background = colors["blue"],
+                    background = colors["green"],
                     foreground = colors["bg"],
                     **get_decoration(),
                     fontsize = 15,
@@ -354,6 +356,14 @@ screens = [
                     format = "%D %a %H:%M ",
                     **get_decoration("right"),
                 ),
+                widget.TextBox(
+                    foreground = colors["fg"],
+                    offset = 0,
+                    padding = 8,
+                    text = "",
+                ),
+                widget.CurrentLayoutIcon(),
+                widget.Spacer(length = 2),
             ],
             size = 20,
             opacity = 1,
