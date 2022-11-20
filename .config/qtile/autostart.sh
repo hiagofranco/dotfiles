@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Enable compositor
-picom &
+picom --config /home/hiago/.config/picom/picom.conf -b
 
 # Configure touchpad to tap to click and natural scrolling
 xinput set-prop "ELAN050A:01 04F3:3158 Touchpad" "libinput Tapping Enabled" 1
