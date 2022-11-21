@@ -229,7 +229,7 @@ screens = [
                     **get_decoration("left"),
                 ),
                 modify(
-                    widget.Volume,
+                    widget.PulseVolume,
                     background = colors["magenta"],
                     foreground = colors["bg"],
                     **get_powerline("arrow_right"),
