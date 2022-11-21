@@ -18,13 +18,13 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=' Shutdown'
-reboot=' Reboot'
-lock=' Lock'
-suspend=' Suspend'
+shutdown=' Shutdown'
+reboot=' Reboot'
+lock=' Lock'
+suspend=' Suspend'
 logout='﫼 Logout'
 yes=' Yes'
-no=' No'
+no=' No'
 
 # Rofi CMD
 rofi_cmd() {
@@ -78,6 +78,8 @@ run_cmd() {
 				i3-msg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			elif [[ "$DESKTOP_SESSION" == 'qtile' ]]; then
+                qtile cmd-obj -o cmd -f shutdown
 			fi
 		fi
 	else
