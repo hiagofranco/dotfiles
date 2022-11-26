@@ -46,6 +46,7 @@ curl -sL install-node.vercel.app/lts | bash
   * `pip install psutil`
   * `sudo apt install brightnessctl`
   * `sudo apt install playerctl`
+  * `sudo apt install shutter`
 
 ## Install ##
 
