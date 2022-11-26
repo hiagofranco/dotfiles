@@ -11,6 +11,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add .local to PATH
 export PATH="$PATH:/home/hiago/.local/bin"
 
+# Add .cargo to PATH
+export PATH="$PATH:/home/hiago/.cargo/bin"
+
 ZSH_THEME="aussiegeek-custom"
 
 plugins=(git colored-man-pages zsh-autosuggestions zsh-syntax-highlighting)
@@ -20,6 +23,8 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 alias cat="bat"
+alias ls="exa --icons"
+alias ll="exa --icons -l -b -g"
 
 # Enable colors for vim theme
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
