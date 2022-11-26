@@ -102,6 +102,9 @@ keys = [
     # Rofi menus
     Key([mod], "s", lazy.spawn("/home/hiago/.config/rofi/scripts/launcher_t1"), desc="Rofi launcher"),
     Key([mod], "p", lazy.spawn("/home/hiago/.config/rofi/scripts/powermenu_t1"), desc="Rofi powermenu"),
+    
+    # Print
+    Key([], "Print", lazy.spawn("shutter -f"), desc="Printscreen"),
 ]
 
 #groups = [Group(i) for i in "123qwe"]
@@ -109,7 +112,7 @@ keys = [
 groups = [
     Group("1", label = ""),
     Group("2", label = ""),
-    Group("3", label = ""),
+    Group("3", label = ""),
     Group("q", label = "ﭮ"),
     Group("w", label = "阮"),
     Group("e", label = "嗢"),
@@ -190,23 +193,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(length = 2),
-                # Logo
-                modify(
-                    widget.TextBox,
-                    background = colors["green"],
-                    foreground = colors["bg"],
-                    **get_decoration(),
-                    fontsize = 15,
-                    text = "  ",
-                    padding = 17,
-                ),
                 # Separator
-                widget.TextBox(
-                    foreground = colors["fg"],
-                    offset = 0,
-                    padding = 8,
-                    text = "",
-                ),
                 widget.GroupBox(
                     borderwidth = 1,
                     highlight_color = colors["bg"],
