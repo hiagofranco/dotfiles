@@ -110,12 +110,14 @@ keys = [
 #groups = [Group(i) for i in "123qwe"]
 
 groups = [
-    Group("1", label = ""),
+    Group("1", label = "", matches=[Match(wm_class="firefox")]),
     Group("2", label = ""),
-    Group("3", label = ""),
-    Group("q", label = "ﭮ"),
-    Group("w", label = "阮"),
-    Group("e", label = "嗢"),
+    Group("3", label = "", matches=[Match(wm_class="Steam")]),
+    Group("4", label = ""),
+    Group("q", label = "ﭮ", layout="max", matches=[Match(wm_class="discord")]),
+    Group("w", label = "阮", layout="max", matches=[Match(wm_class="spotify")]),
+    Group("e", label = "嗢", layout="max", matches=[Match(wm_class="vlc")]),
+    Group("r", label = ""),
 ]
 
 for i in groups:
@@ -150,9 +152,9 @@ layout_configs = {
 }
 
 layouts = [
+    layout.MonadTall(**layout_configs),
     layout.Columns(**layout_configs),
     layout.Max(**layout_configs),
-    layout.MonadTall(**layout_configs),
 ]
 
 widget_defaults = dict(
