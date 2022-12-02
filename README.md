@@ -49,6 +49,8 @@ curl -sL install-node.vercel.app/lts | bash
   * `sudo apt install shutter`
 * xcp
   * `cargo install xcp`
+* dunst notification server
+  * `sudo apt install dunst`
 
 ## Install ##
 

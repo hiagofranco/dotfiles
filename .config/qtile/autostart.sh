@@ -9,3 +9,6 @@ xinput set-prop "UNIW0001:00 093A:0003 Touchpad" "libinput Tapping Enabled" 1
 
 # Set screen lock
 xss-lock -- betterlockscreen --lock &
+
+# Notification server
+dunst &
