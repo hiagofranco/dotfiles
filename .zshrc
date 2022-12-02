@@ -25,6 +25,7 @@ alias vim="nvim"
 alias cat="bat"
 alias ls="exa --icons"
 alias ll="exa --icons -l -b -g"
+alias cp="xcp"
 
 # Enable colors for vim theme
 source "$HOME/.vim/plugged/gruvbox/gruvbox_256palette.sh"
