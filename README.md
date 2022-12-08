@@ -51,6 +51,10 @@ curl -sL install-node.vercel.app/lts | bash
   * `cargo install xcp`
 * dunst notification server
   * `sudo apt install dunst`
+* bottom
+  * `cargo install bottom`
+* dust
+  * `cargo install du-rust`
 
 ## Install ##
 
