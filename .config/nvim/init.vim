@@ -57,6 +57,8 @@ Plug 'romgrk/barbar.nvim'
 
 call plug#end()
 
+" Set transparency to neovim:
+autocmd VimEnter * hi Normal ctermbg=none
 colorscheme gruvbox             " Set vim theme
 let g:airline_theme='gruvbox'   " Set airline theme
 
@@ -67,7 +69,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " -- COC extensions
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-cmake', 'coc-docker', 'coc-pyright', 'coc-browser', 'coc-snippets', 'coc-markdownlint']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-clangd', 'coc-cmake', 'coc-docker', 'coc-pyright', 'coc-browser', 'coc-snippets', 'coc-markdownlint', 'coc-rust-analyzer']
 
 "-- COC Configs below"
 " 
