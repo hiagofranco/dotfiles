@@ -102,9 +102,14 @@ keys = [
     # Rofi menus
     Key([mod], "s", lazy.spawn("/home/hiago/.config/rofi/scripts/launcher_t1"), desc="Rofi launcher"),
     Key([mod], "p", lazy.spawn("/home/hiago/.config/rofi/scripts/powermenu_t1"), desc="Rofi powermenu"),
+    Key([mod], "g", lazy.spawn("/home/hiago/.config/rofi/applets/bin/wifi.sh"), desc="Rofi WiFi"),
     
     # Print
     Key([], "Print", lazy.spawn("shutter -f"), desc="Printscreen"),
+
+    # Open file
+    Key([mod], "f", lazy.spawn("nemo"), desc="File Manager"),
+
 ]
 
 #groups = [Group(i) for i in "123qwe"]
@@ -117,7 +122,7 @@ groups = [
     Group("q", label = "ﭮ", layout="max", matches=[Match(wm_class="discord")]),
     Group("w", label = "阮", layout="max", matches=[Match(wm_class="spotify")]),
     Group("e", label = "嗢", layout="max", matches=[Match(wm_class="vlc")]),
-    Group("r", label = ""),
+    Group("r", label = "", layout="max", matches=[Match(wm_class="thunderbird")]),
 ]
 
 for i in groups:
@@ -190,7 +195,7 @@ def get_powerline(path: str, size = 9) -> dict:
 
 screens = [
     Screen(
-        wallpaper = "~/.config/qtile/images/wp.png",
+        wallpaper = "~/.config/qtile/images/wp.jpg",
         wallpaper_mode = "fill",
         top=bar.Bar(
             [
@@ -222,6 +227,7 @@ screens = [
                     background = colors["magenta"],
                     foreground = colors["bg"],
                     **get_powerline("arrow_right"),
+                    mouse_callbacks = {"Button1": lazy.spawn("cinnamon-settings sound")},
                 ),
                 # Brightness control and percentage
                 widget.TextBox(
@@ -242,8 +248,12 @@ screens = [
                     background = colors["blue"],
                     foreground = colors["bg"],
                     interface = "wlp4s0",
-                    format = "{essid:.8} {percent:2.0%}",
+                    format = "{essid} {percent:2.0%}",
                     **get_powerline("arrow_right"),
+                    mouse_callbacks = {"Button1": lazy.spawn("cinnamon-settings network")},
+                    scroll = True,
+                    scroll_interval = 0.025,
+                    width = 80,
                 ),
                 # Updates
                 widget.TextBox(
@@ -257,13 +267,13 @@ screens = [
                     foreground = colors["bg"],
                     colour_have_updates = colors["bg"],
                     colour_no_updates = colors["bg"],
-                    display_format = "{updates} updates",
+                    display_format = "{updates} updates ",
                     distro = "Ubuntu",
                     initial_text = "No updates ",
                     no_update_string = "No updates ",
                     padding = 0,
                     update_interval = 3600,
-                    **get_decoration("right")
+                    **get_decoration("right"),
                 ),
                 widget.Spacer(),
                 widget.WindowName(
@@ -301,7 +311,8 @@ screens = [
                     widget.Memory,
                     background = colors["yellow"],
                     foreground = colors["bg"],
-                    format = "{MemUsed: .0f}{mm} ",
+                    format = "{MemUsed: .2f}{mm}",
+                    measure_mem = "G",
                     **get_powerline("arrow_right"),
                 ),
                 # Disk
