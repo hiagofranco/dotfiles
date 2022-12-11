@@ -255,6 +255,21 @@ screens = [
                     scroll_interval = 0.025,
                     width = 80,
                 ),
+                # Eth
+                widget.TextBox(
+                    background = colors["green"],
+                    foreground = colors["bg"],
+                    text = "Eth:",
+                ),
+                modify(
+                    widget.Eth,
+                    background = colors["green"],
+                    foreground = colors["bg"],
+                    interface = "enp3s0",
+                    **get_powerline("arrow_right"),
+                    cable_disconnected_msg = " ",
+                    cable_connected_msg = "",
+                ),
                 # Updates
                 widget.TextBox(
                     background = colors["red"],
@@ -274,6 +289,9 @@ screens = [
                     padding = 0,
                     update_interval = 3600,
                     **get_decoration("right"),
+                    scroll = True,
+                    scroll_interval = 0.025,
+                    width = 50,
                 ),
                 widget.Spacer(),
                 widget.WindowName(
@@ -325,7 +343,7 @@ screens = [
                     widget.DF,
                     background = colors["cyan"],
                     foreground = colors["bg"],
-                    format = "{f} GB",
+                    format = "{f}GB",
                     partition = "/",
                     visible_on_warn = False,
                     warn_color = colors["fg"],
@@ -363,7 +381,7 @@ screens = [
                     widget.Clock,
                     background = colors["magenta"],
                     foreground = colors["bg"],
-                    format = "%d/%m/%y %a %H:%M ",
+                    format = "%d/%b %a %H:%M ",
                     **get_decoration("right"),
                 ),
                 widget.TextBox(
