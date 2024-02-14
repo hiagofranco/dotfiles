@@ -1,0 +1,46 @@
+# vim: filetype=muttrc
+
+# A minimal configuration for Neomutt/Mutt and Gmail/G Suite
+# For more information, see:
+# https://heilala.medium.com/command-line-email-with-neomutt-and-gmail-d558864ac3c8?source=friends_link&sk=4dbd90b6b7aebca3bce8d94c9a053168
+
+# Decrypts passwords quietly
+# see: https://wiki.archlinux.org/index.php/Mutt#Passwords_management
+source "gpg -dq $HOME/my-file.gpg |"
+
+# Username and password for your Gmail/G Suite account
+set imap_user = "user@gmail.com"
+# Password assigned from decrypted file
+set imap_pass = $my_pass
+
+# Specifies the default location of your mailboxes
+set folder = "imaps://imap.gmail.com:993"
+
+# Configure Simple Mail Transfer Protocol for sending mail
+# for Gmail
+set smtp_url = "smtps://user@smtp.gmail.com:587"
+# for G Suite with own domain
+#set smtp_url = "smtps://yourusername@yourdomain.ext@smtp.gmail.com:587"
+set smtp_pass = $my_pass
+
+# Location of inbox
+set spoolfile = "+INBOX"
+# Location of drafts
+set postponed = "+[GMail]/Drafts"
+
+# Activate caching, as it can greatly improve speed
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+
+# Disable saving outgoing mail since Gmail saves them by default.
+set record = ""
+
+set editor = "nvim"
+set askcc
+
+# status bar, date format, finding stuff etc.
+set status_chars = " *%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set date_format = "%d.%m.%Y %H:%M"
+set sort = threads
+set sort_aux = reverse-last-date-received
