@@ -21,3 +21,9 @@ style = "Italic"
 [font.normal]
 family = "Hack Nerd Font"
 style = "Regular"
+
+[window]
+opacity = 0.9
+startup_mode = "Maximized"
+title = "Terminal"
+dynamic_title = false
