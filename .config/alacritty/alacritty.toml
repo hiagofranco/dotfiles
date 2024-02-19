@@ -28,6 +28,7 @@ hide_when_typing = true
 program = "/bin/zsh"
 
 [window]
+dynamic_title = false
+opacity = 0.9
 startup_mode = "Maximized"
 title = "Terminal"
-dynamic_title = false
