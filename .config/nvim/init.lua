@@ -156,6 +156,8 @@ require('onedark').setup {
     style = 'darker'
 }
 require('onedark').load()
+-- Make the theme transparent following alacritty opacity
+vim.cmd.highlight({"Normal", "guibg=none"})
 
 -- Enable break indent
 vim.o.breakindent = true
