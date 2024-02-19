@@ -1,4 +1,16 @@
 import = ["/home/frh/.config/alacritty/themes/themes/iterm.toml"]
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[cursor]
+blink_interval = 500
+blink_timeout = 5
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "Off"
 
 [env]
 TERM = "xterm-256color"
@@ -6,24 +18,16 @@ TERM = "xterm-256color"
 [font]
 size = 14.0
 
-[font.bold]
-family = "Hack Nerd Font"
-style = "Bold"
-
-[font.bold_italic]
-family = "Hack Nerd Font"
-style = "Bold Italic"
-
-[font.italic]
-family = "Hack Nerd Font"
-style = "Italic"
-
 [font.normal]
-family = "Hack Nerd Font"
-style = "Regular"
+family = "MesloLGS NF"
+
+[mouse]
+hide_when_typing = true
+
+[shell]
+program = "/bin/zsh"
 
 [window]
-opacity = 0.9
 startup_mode = "Maximized"
 title = "Terminal"
 dynamic_title = false
