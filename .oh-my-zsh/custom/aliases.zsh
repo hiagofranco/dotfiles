@@ -1,4 +1,5 @@
 alias gaa='git add --all'
+alias gd='git diff'
 alias grv='git remote -v'
 alias gst='git status'
 alias la='eza --icons -l -a'
