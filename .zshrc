@@ -13,8 +13,8 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Path to Nvim
-export PATH="$PATH:/opt/nvim-linux64/bin"
+# Path to Nvim and local/bin
+export PATH="$PATH:/opt/nvim-linux64/bin:$HOME/.local/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -27,9 +27,24 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions colored-man-pages zsh-syntax-highlighting)
+plugins=(
+  colored-man-pages
+  gitfast
+  zsh-autosuggestions
+  zsh-fzf-history-search
+  zsh-syntax-highlighting
+)
+
+# zsh-fzf-history-search flags (see https://github.com/joshskidmore/zsh-fzf-history-search)
+ZSH_FZF_HISTORY_SEARCH_FZF_EXTRA_ARGS="--height 40% --reverse"
+ZSH_FZF_HISTORY_SEARCH_END_OF_LINE="true"
+ZSH_FZF_HISTORY_SEARCH_EVENT_NUMBERS=0
+ZSH_FZF_HISTORY_SEARCH_DATES_IN_SEARCH=0
+ZSH_FZF_HISTORY_SEARCH_REMOVE_DUPLICATES="true"
 
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval "$(zoxide init zsh)"
