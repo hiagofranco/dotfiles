@@ -1,3 +1,4 @@
+alias fd='fdfind'
 alias gaa='git add --all'
 alias gd='git diff'
 alias grv='git remote -v'
