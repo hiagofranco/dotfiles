@@ -41,6 +41,8 @@ require('lazy').setup({
 
   'sindrets/diffview.nvim',
 
+  {'ms-jpq/coq_nvim', branch = 'coq'},
+
   {'romgrk/barbar.nvim',
     dependencies = {
       'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
