@@ -25,7 +25,8 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/Pictures/4HPEcJ8.jpeg fill
 #
 # Example configuration:
 #
@@ -204,7 +205,7 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar swaybar_command waybar
+exec_always ~/.config/waybar/launch.sh
 
 #
 # Brightness:
@@ -222,3 +223,7 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 include /etc/sway/config.d/*
+
+# lock screen after 5 minutes of idle
+exec swayidle -w \
+	timeout 300 'swaylock -f'
