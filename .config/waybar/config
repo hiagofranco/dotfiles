@@ -5,7 +5,8 @@
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "clock", "tray"],
     "keyboard-state": {
-        "numlock": true,
+	// Add user to group input to make sure you have the proper permissions
+	// "numlock": true,
         "capslock": true,
         "format": "{name} {icon}",
         "format-icons": {
