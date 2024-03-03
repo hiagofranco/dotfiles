@@ -6,3 +6,4 @@
 .config/pulse/
 .config/xfce4/
 .config/pavucontrol*
+.config/htop/
