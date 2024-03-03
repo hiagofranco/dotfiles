@@ -209,8 +209,10 @@ bar swaybar_command waybar
 #
 # Brightness:
 #
-bindsym XF86MonBrightnessUp exec brightnessctl s +10%
-bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl -q s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl -q s 10%-
+bindsym XF86KbdBrightnessUp exec brightnessctl -q -d smc::kbd_backlight s +25%
+bindsym XF86KbdBrightnessDown exec brightnessctl -q -d smc::kbd_backlight s 25%-
 
 #
 # Volume:
