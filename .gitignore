@@ -5,3 +5,4 @@
 .config/dconf/
 .config/pulse/
 .config/xfce4/
+.config/pavucontrol*
