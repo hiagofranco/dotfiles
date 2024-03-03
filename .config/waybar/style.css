@@ -133,7 +133,7 @@ tooltip label {
 #keyboard-state,
 #mpd {
     background-color: transparent;
-    color: @text;
+    color: @black;
     padding: 1px 8px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -313,7 +313,7 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    background-color: @lightgray;
 }
 
 #idle_inhibitor.activated {
