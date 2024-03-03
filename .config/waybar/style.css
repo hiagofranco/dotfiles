@@ -1,3 +1,21 @@
+@define-color white      #F2F2F2;
+@define-color black      #000203;
+@define-color text       #BECBCB;
+@define-color lightgray  #686868;
+@define-color darkgray   #353535;
+@define-color red        #F38BA8;
+
+@define-color black-transparent-1 rgba(0, 0, 0, 0.1);
+@define-color black-transparent-2 rgba(0, 0, 0, 0.2);
+@define-color black-transparent-3 rgba(0, 0, 0, 0.3);
+@define-color black-transparent-4 rgba(0, 0, 0, 0.4);
+@define-color black-transparent-5 rgba(0, 0, 0, 0.5);
+@define-color black-transparent-6 rgba(0, 0, 0, 0.6);
+@define-color black-transparent-7 rgba(0, 0, 0, 0.7);
+@define-color black-transparent-8 rgba(0, 0, 0, 0.8);
+@define-color black-transparent-9 rgba(0, 0, 0, 0.9);
+@define-color black-solid         rgba(0, 0, 0, 1.0);
+
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -5,71 +23,96 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: @black-solid;
+    color: @text;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+tooltip {
+    background: @black-transparent-9;
+    border: 1px solid @darkgray;
+    border-radius: 10px;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
+tooltip label {
+    color: @text;
 }
 
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces {
+    /* border: 1px solid #10171b; */
+    /* border-radius: 20px; */
+    margin-top: 0;
+    margin-bottom: 0;
+    /* margin-left: 1px; */
+    margin-right: 5px;
 }
 
 #workspaces button {
-    padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @text;
+    /* border: 1px solid @darkgray; */
+    padding: 1px 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: transparent;
+    border: 1px solid @lightgray;
+    color: @white;
+    min-width: 30px;
+    transition: all 0.3s ease;
 }
 
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button.focused,
+#workspaces button.active {
+    /* background-color: @darkgray; */
+    border: 1px solid @lightgray;
+    color: @white;
+    min-width: 30px;
+    transition: all 0.3s ease;
+    animation: colored-gradient 10s ease infinite;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @red;
+    color: @black;
+    transition: all 0.3s ease;
 }
 
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+#taskbar {
+    border-radius: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#taskbar button {
+    color: @text;
+    padding: 1px 8px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+#taskbar button:hover {
+    background: transparent;
+    border: 1px solid @darkgray;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    animation: colored-gradient 10s ease infinite;
+}
+
+#taskbar button.active {
+    border: 1px solid @darkgray;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    animation: colored-gradient 10s ease infinite;
 }
 
 #clock,
@@ -87,24 +130,72 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#keyboard-state,
 #mpd {
-    padding: 0 10px;
-    color: #ffffff;
+    background-color: transparent;
+    color: @text;
+    padding: 1px 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    /* border: 1px solid @darkgray; */
+    border-radius: 15px;
+    transition: all 0.3s ease;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
+#submap {
+    border: 0;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+.modules-left > widget:first-child > #workspaces button,
+.modules-left > widget:first-child > #taskbar button,
+.modules-left > widget:first-child > #window,
+.modules-left > widget:first-child > #clock,
+.modules-left > widget:first-child > #battery,
+.modules-left > widget:first-child > #cpu,
+.modules-left > widget:first-child > #memory,
+.modules-left > widget:first-child > #disk,
+.modules-left > widget:first-child > #temperature,
+.modules-left > widget:first-child > #backlight,
+.modules-left > widget:first-child > #network,
+.modules-left > widget:first-child > #pulseaudio.audio,
+.modules-left > widget:first-child > #pulseaudio.microphone,
+.modules-left > widget:first-child > #wireplumber,
+.modules-left > widget:first-child > #custom-media,
+.modules-left > widget:first-child > #tray,
+.modules-left > widget:first-child > #mode,
+.modules-left > widget:first-child > #idle_inhibitor,
+.modules-left > widget:first-child > #scratchpad,
+.modules-left > widget:first-child > #keyboard-state,
+.modules-left > widget:first-child > #mpd {
+    margin-left: 5px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right > widget:first-child > #workspaces button,
+.modules-right > widget:first-child > #taskbar button,
+.modules-right > widget:first-child > #window,
+.modules-right > widget:first-child > #clock,
+.modules-right > widget:first-child > #battery,
+.modules-right > widget:first-child > #cpu,
+.modules-right > widget:first-child > #memory,
+.modules-right > widget:first-child > #disk,
+.modules-right > widget:first-child > #temperature,
+.modules-right > widget:first-child > #backlight,
+.modules-right > widget:first-child > #network,
+.modules-right > widget:first-child > #pulseaudio.audio,
+.modules-right > widget:first-child > #pulseaudio.microphone,
+.modules-right > widget:first-child > #wireplumber,
+.modules-right > widget:first-child > #custom-media,
+.modules-right > widget:first-child > #tray,
+.modules-right > widget:first-child > #mode,
+.modules-right > widget:first-child > #idle_inhibitor,
+.modules-right > widget:first-child > #scratchpad,
+.modules-right > widget:first-child > #keyboard-state,
+.modules-right > widget:first-child > #mpd {
+    margin-right: 5px;
 }
 
 #clock {
@@ -258,17 +349,6 @@ label:focus {
 #keyboard-state {
     background: #97e1ad;
     color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad {
@@ -276,5 +356,5 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
