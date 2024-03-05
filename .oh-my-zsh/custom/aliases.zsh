@@ -1,3 +1,4 @@
+alias bat='batcat'
 alias fd='fdfind'
 alias gaa='git add --all'
 alias gd='git diff'
