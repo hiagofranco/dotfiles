@@ -14,7 +14,7 @@ env:
 font:
   normal:
     family: Hack Nerd Font
-  size: 14.0
+  size: 18.0
 
 live_config_reload: true
 
@@ -26,6 +26,6 @@ shell:
 
 window:
   dynamic_title: false
-  opacity: 0.9
+  opacity: 0.95
   startup_mode: Maximized
   title: Terminal
