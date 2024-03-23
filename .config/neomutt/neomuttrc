@@ -4,6 +4,9 @@
 # For more information, see:
 # https://heilala.medium.com/command-line-email-with-neomutt-and-gmail-d558864ac3c8?source=friends_link&sk=4dbd90b6b7aebca3bce8d94c9a053168
 
+set realname = "User Name"
+set from = "user@mail.com"
+
 # Decrypts passwords quietly
 # see: https://wiki.archlinux.org/index.php/Mutt#Passwords_management
 source "gpg -dq $HOME/my-file.gpg |"
@@ -36,11 +39,5 @@ set message_cachedir = "~/.mutt/cache/bodies"
 set record = ""
 
 set editor = "nvim"
-set askcc
 
-# status bar, date format, finding stuff etc.
-set status_chars = " *%A"
-set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
-set date_format = "%d.%m.%Y %H:%M"
-set sort = threads
-set sort_aux = reverse-last-date-received
+set askcc
