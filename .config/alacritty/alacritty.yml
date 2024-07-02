@@ -14,18 +14,13 @@ env:
 font:
   normal:
     family: Hack Nerd Font
-  size: 18.0
+  size: 14.0
 
 live_config_reload: true
 
 mouse:
   hide_when_typing: true
 
-shell:
-  program: /bin/zsh
-
 window:
   dynamic_title: false
-  opacity: 0.95
-  startup_mode: Maximized
   title: Terminal

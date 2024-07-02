@@ -146,7 +146,12 @@ require('lazy').setup({
     },
   },
 
+  -- Trailing Spaces
+  { 'echasnovski/mini.trailspace', version = false },
+
 }, {})
+
+require('mini.trailspace').setup()
 
 -- Make line numbers default
 vim.wo.number = true
