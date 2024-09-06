@@ -24,3 +24,4 @@ mouse:
 window:
   dynamic_title: false
   title: Terminal
+  opacity: 0.95
