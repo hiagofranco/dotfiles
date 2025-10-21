@@ -35,7 +35,7 @@ set message_cachedir = "~/.mutt/cache/bodies"
 # Disable saving outgoing mail since Gmail saves them by default.
 set record = ""
 
-set editor = "nvim"
+set editor = "vim"
 set askcc
 
 # status bar, date format, finding stuff etc.
