@@ -23,3 +23,5 @@ set undofile
 
 set hlsearch
 set ignorecase
+
+set updatetime=300
