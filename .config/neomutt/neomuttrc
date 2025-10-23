@@ -1,44 +1,47 @@
-# vim: filetype=muttrc
+#############################
+# 1. Identificação básica
+#############################
+set realname = "User"
+set from     = "user@email.com"
+set use_from = yes
+set envelope_from = yes
 
-# A minimal configuration for Neomutt/Mutt and Gmail/G Suite
-# For more information, see:
-# https://heilala.medium.com/command-line-email-with-neomutt-and-gmail-d558864ac3c8?source=friends_link&sk=4dbd90b6b7aebca3bce8d94c9a053168
+#############################
+# 2. Carregar credenciais seguras
+#############################
+set imap_user = "user@email.com"
+set imap_pass = "<pass>"
 
-# Decrypts passwords quietly
-# see: https://wiki.archlinux.org/index.php/Mutt#Passwords_management
-source "gpg -dq $HOME/my-file.gpg |"
+set smtp_url  = "smtp://user@email.com@127.0.0.1:1025/"
+set smtp_pass = $imap_pass
 
-# Username and password for your Gmail/G Suite account
-set imap_user = "user@gmail.com"
-# Password assigned from decrypted file
-set imap_pass = $my_pass
-
-# Specifies the default location of your mailboxes
-set folder = "imaps://imap.gmail.com:993"
-
-# Configure Simple Mail Transfer Protocol for sending mail
-# for Gmail
-set smtp_url = "smtps://user@smtp.gmail.com:587"
-# for G Suite with own domain
-#set smtp_url = "smtps://yourusername@yourdomain.ext@smtp.gmail.com:587"
-set smtp_pass = $my_pass
-
-# Location of inbox
+#############################
+# 3. Configuração IMAP (recebimento)
+#############################
+set folder    = "imap://127.0.0.1:1143"
 set spoolfile = "+INBOX"
-# Location of drafts
-set postponed = "+[GMail]/Drafts"
+set record    = "+Sent"
+set postponed = "+Drafts"
+set trash     = "+Trash"
 
-# Activate caching, as it can greatly improve speed
+#############################
+# 4. Configuração SMTP (envio)
+#############################
+# smtp_url já foi definido no arquivo de credenciais acima
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+#############################
+# 5. Opções de desempenho / cache (opcional)
+#############################
 set header_cache = "~/.mutt/cache/headers"
 set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set timeout = 10
 
-# Disable saving outgoing mail since Gmail saves them by default.
-set record = ""
-
-set editor = "vim"
-set askcc
-
-# status bar, date format, finding stuff etc.
+#############################
+# 6. Cores
+#############################
 set status_chars = " *%A"
 set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
 set date_format = "%d.%m.%Y %H:%M"
